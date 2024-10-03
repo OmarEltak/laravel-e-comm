@@ -22,7 +22,8 @@ use App\Http\Controllers\Front\CartController;
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\Front\indexController::class, 'index'])->name('frontend.index');
 
 Route::prefix('/admin')->namespace('Admin')->group(function () {
     Route::match(['get', 'post'], '/login',[App\Http\Controllers\Admin\AdminController::class, 'login'])->name('admin.login');
