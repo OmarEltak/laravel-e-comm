@@ -20,10 +20,12 @@ use App\Http\Controllers\Front\CartController;
 //     return view('welcome');
 // });
 
+Route::get('/', function () {
+    return redirect('/front');
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 
 Route::prefix('/admin')->namespace('Admin')->group(function () {
     Route::match(['get', 'post'], '/login',[App\Http\Controllers\Admin\AdminController::class, 'login'])->name('admin.login');
